@@ -1,0 +1,351 @@
+{
+  "sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "model_class": "Functional",
+  "model_name": "v5_EfficientNetV2B0_320",
+  "top_layers": [
+    {
+      "class_name": "InputLayer",
+      "name": "image",
+      "trainable": null,
+      "dtype": "float32"
+    },
+    {
+      "class_name": "Sequential",
+      "name": "augmentation",
+      "trainable": true,
+      "dtype": {
+        "module": "keras",
+        "class_name": "DTypePolicy",
+        "config": {
+          "name": "float32"
+        },
+        "registered_name": null
+      }
+    },
+    {
+      "class_name": "Functional",
+      "name": "efficientnetv2-b0",
+      "trainable": true,
+      "dtype": null
+    },
+    {
+      "class_name": "Activation",
+      "name": "last_conv_features",
+      "trainable": true,
+      "dtype": {
+        "module": "keras",
+        "class_name": "DTypePolicy",
+        "config": {
+          "name": "float32"
+        },
+        "registered_name": null
+      }
+    },
+    {
+      "class_name": "GlobalAveragePooling2D",
+      "name": "global_average_pooling2d",
+      "trainable": true,
+      "dtype": {
+        "module": "keras",
+        "class_name": "DTypePolicy",
+        "config": {
+          "name": "float32"
+        },
+        "registered_name": null
+      }
+    },
+    {
+      "class_name": "Dropout",
+      "name": "dropout",
+      "trainable": true,
+      "dtype": {
+        "module": "keras",
+        "class_name": "DTypePolicy",
+        "config": {
+          "name": "float32"
+        },
+        "registered_name": null
+      }
+    },
+    {
+      "class_name": "Dense",
+      "name": "prediction",
+      "trainable": true,
+      "dtype": {
+        "module": "keras",
+        "class_name": "DTypePolicy",
+        "config": {
+          "name": "float32"
+        },
+        "registered_name": null
+      }
+    }
+  ],
+  "backbone_name": "efficientnetv2-b0",
+  "backbone_layers": 270,
+  "trainable_backbone_layers": 128,
+  "trainable_bn_layers": [],
+  "backbone_call_nodes": [
+    {
+      "args": [
+        {
+          "class_name": "__keras_tensor__",
+          "config": {
+            "shape": [
+              null,
+              320,
+              320,
+              3
+            ],
+            "dtype": "float32",
+            "keras_history": [
+              "augmentation",
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "kwargs": {
+        "training": false,
+        "mask": null
+      }
+    }
+  ],
+  "compile_config": {},
+  "augmentation": {
+    "name": "augmentation",
+    "trainable": true,
+    "dtype": {
+      "module": "keras",
+      "class_name": "DTypePolicy",
+      "config": {
+        "name": "float32"
+      },
+      "registered_name": null
+    },
+    "layers": [
+      {
+        "module": "keras.layers",
+        "class_name": "InputLayer",
+        "config": {
+          "batch_shape": [
+            null,
+            320,
+            320,
+            3
+          ],
+          "dtype": "float32",
+          "sparse": false,
+          "ragged": false,
+          "name": "input_layer_1",
+          "optional": false
+        },
+        "registered_name": null
+      },
+      {
+        "module": "keras.layers",
+        "class_name": "RandomRotation",
+        "config": {
+          "name": "random_rotation",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "factor": [
+            -0.025,
+            0.025
+          ],
+          "data_format": "channels_last",
+          "fill_mode": "reflect",
+          "fill_value": 0.0,
+          "interpolation": "bilinear",
+          "seed": 314
+        },
+        "registered_name": null,
+        "build_config": {
+          "input_shape": [
+            null,
+            320,
+            320,
+            3
+          ]
+        }
+      },
+      {
+        "module": "keras.layers",
+        "class_name": "RandomTranslation",
+        "config": {
+          "name": "random_translation",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "height_factor": 0.04,
+          "width_factor": 0.04,
+          "fill_mode": "reflect",
+          "interpolation": "bilinear",
+          "seed": 315,
+          "fill_value": 0.0,
+          "data_format": "channels_last"
+        },
+        "registered_name": null,
+        "build_config": {
+          "input_shape": [
+            null,
+            320,
+            320,
+            3
+          ]
+        }
+      },
+      {
+        "module": "keras.layers",
+        "class_name": "RandomZoom",
+        "config": {
+          "name": "random_zoom",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "height_factor": 0.1,
+          "width_factor": null,
+          "fill_mode": "reflect",
+          "interpolation": "bilinear",
+          "seed": 316,
+          "fill_value": 0.0,
+          "data_format": "channels_last"
+        },
+        "registered_name": null,
+        "build_config": {
+          "input_shape": [
+            null,
+            320,
+            320,
+            3
+          ]
+        }
+      },
+      {
+        "module": "keras.layers",
+        "class_name": "RandomBrightness",
+        "config": {
+          "name": "random_brightness",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "factor": [
+            -0.12,
+            0.12
+          ],
+          "value_range": [
+            0,
+            255
+          ],
+          "seed": 317
+        },
+        "registered_name": null,
+        "build_config": {
+          "input_shape": [
+            null,
+            320,
+            320,
+            3
+          ]
+        }
+      },
+      {
+        "module": "keras.layers",
+        "class_name": "RandomContrast",
+        "config": {
+          "name": "random_contrast",
+          "trainable": true,
+          "dtype": {
+            "module": "keras",
+            "class_name": "DTypePolicy",
+            "config": {
+              "name": "float32"
+            },
+            "registered_name": null
+          },
+          "factor": [
+            0,
+            0.2
+          ],
+          "value_range": [
+            0,
+            255
+          ],
+          "seed": 318
+        },
+        "registered_name": null,
+        "build_config": {
+          "input_shape": [
+            null,
+            320,
+            320,
+            3
+          ]
+        }
+      }
+    ],
+    "build_input_shape": [
+      null,
+      320,
+      320,
+      3
+    ]
+  },
+  "package_files": [
+    "EfficientNetV2B0_320_epoch_selection.csv",
+    "EfficientNetV2B0_320_validation_predictions.csv",
+    "EfficientNetV2B0_320_validation_probabilities.npy",
+    "FN_person108_bacteria_511_member_gradcam.png",
+    "FP_IM-0022-0001_member_gradcam.png",
+    "RUN_SUMMARY.md",
+    "TN_IM-0001-0001_member_gradcam.png",
+    "TP_person100_bacteria_475_member_gradcam.png",
+    "calibration_addendum.json",
+    "candidate_records.json",
+    "classification_report.txt",
+    "comparison_to_original.json",
+    "development_protocol.json",
+    "environment.json",
+    "five_version_comparison.png",
+    "gradcam_examples.json",
+    "historical_benchmark_comparison.csv",
+    "historical_normal_source_error_counts.json",
+    "historical_test_confusion_matrix.png",
+    "historical_test_metrics.json",
+    "historical_test_predictions.csv",
+    "locked_policy.json",
+    "previous_v4_metrics.json",
+    "prior_split_audit.json",
+    "selected_model.keras",
+    "source_strata_counts.json",
+    "split_manifest.json",
+    "validation_model_comparison.csv",
+    "FINAL_SUMMARY_TR.txt"
+  ]
+}

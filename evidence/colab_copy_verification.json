@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "final_cells": 32,
+  "final_embedded_pngs": 8,
+  "final_sources_and_saved_outputs_match_colab": true,
+  "comparison_scope": "Cell sources/order and saved outputs; interface metadata and execution counters excluded.",
+  "colab_url": "https://colab.research.google.com/drive/1hmNVz3J-bfprohbz2VqfrdgzmZgECYD4?authuser=1",
+  "execution_scope": "Outputs originate from the final fresh local CPU kernel. No second Colab execution; Colab paste clears counters.",
+  "local_execution_counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ]
+}

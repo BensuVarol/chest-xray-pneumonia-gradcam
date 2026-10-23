@@ -1,0 +1,13 @@
+{
+  "keras_members": [
+    "metadata.json",
+    "config.json",
+    "model.weights.h5"
+  ],
+  "weight_hdf5_root_groups": [
+    "layers",
+    "vars"
+  ],
+  "optimizer_group_present": false,
+  "scope": "Saved V5 inference artifact"
+}

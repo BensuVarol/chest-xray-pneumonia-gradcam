@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "changed_source_cells_zero_based": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    20,
+    22,
+    24,
+    26,
+    27,
+    29
+  ],
+  "intentional_portability_and_markdown_edit_cells_zero_based": [
+    1,
+    2,
+    3,
+    4,
+    26,
+    29
+  ],
+  "formatting_only_code_cells_zero_based": [
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    20,
+    22,
+    24,
+    27
+  ],
+  "numeric_model_threshold_metric_and_gradcam_ast_unchanged": true,
+  "verified_ast_unchanged_code_cells_zero_based": [
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    20,
+    22,
+    24,
+    25,
+    27
+  ],
+  "all_15_original_experimental_assets_unchanged": true,
+  "original_archive_unchanged": true,
+  "original_review_package_unchanged": true,
+  "original_results_not_modified": true,
+  "note": "Fresh outputs were regenerated after the limited source edits. Earlier delivered files remain in the prior ZIP and local backup. Documentation and portability evidence were updated without altering original experimental assets."
+}

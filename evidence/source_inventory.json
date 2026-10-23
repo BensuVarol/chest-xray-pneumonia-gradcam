@@ -1,0 +1,1435 @@
+{
+  "source_path": "archive/Chest_XRay_Pneumonia_V5_Development_Record.ipynb",
+  "source_sha256": "d3e37ab99931ea8aae0b0709d0fef20b10884fb1fede769e664733ae6335bcb6",
+  "cells": 55,
+  "code_cells": 54,
+  "embedded_pngs": 24,
+  "error_outputs": [],
+  "cell_inventory": [
+    {
+      "cell_index": 0,
+      "cell_type": "markdown",
+      "stage": "Overview and evidence boundary",
+      "first_line": "# Chest X-Ray Pneumonia: V5 and Development Record",
+      "source_sha256": "73f9bd94190c1abfc665904dbbd6ad3c4659e676df19b61c232d379a905130ee",
+      "source_characters": 2192,
+      "syntax": "markdown",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_index": 1,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "import os",
+      "source_sha256": "a16f924a97962146677ba69224af8d24988f06d562c23c7d0d9acc1271b1e506",
+      "source_characters": 679,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "254e7d0adb4a2e2d8960d75efc48bcd2cc680c68c3ed7df529be1ee492cd8cde"
+        }
+      ]
+    },
+    {
+      "cell_index": 2,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "# Public dataset access; credentials are not stored in this notebook.",
+      "source_sha256": "c8008862489d8cd16d7c4332c90fbf943fb0cd25e988975f8f3d6adeff414bf5",
+      "source_characters": 304,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "e8b362b8ca4d30cb79815d4035c6a195cee755c0c267c2e9e3ba08c31650433d"
+        }
+      ]
+    },
+    {
+      "cell_index": 3,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "from pathlib import Path",
+      "source_sha256": "b3b1cede7773d96cbd46b0bb3b557a1c0d9041e36d69c4b2365a786304618b12",
+      "source_characters": 903,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "2a80eef35a802371289a2864d6c7b0b29f36db7eefa9407d2af8af37c330eb03"
+        }
+      ]
+    },
+    {
+      "cell_index": 4,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "IMAGE_SUFFIXES = {'.jpg', '.jpeg', '.png', '.bmp', '.gif'}",
+      "source_sha256": "3fe92aedcf9d254c6d9b9ac1309ccdc270b7418ae6ec82de82135e10af9ca3b3",
+      "source_characters": 359,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "06e3009cd0aa5ecdf82d2ec2c6773c0444c8c6e7dda08d571ddeda9164220a8a"
+        }
+      ]
+    },
+    {
+      "cell_index": 5,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "IMG_SIZE = (224, 224)",
+      "source_sha256": "0d9329d811a44b073828184dc08e12849117a0f477866051c2480a13df2a896a",
+      "source_characters": 2287,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "d6763d4d425f83389f1fc700c905895dc4892e0d96c9d47e5f8876c5f099d498"
+        }
+      ]
+    },
+    {
+      "cell_index": 6,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "from collections import Counter",
+      "source_sha256": "870be78316d16165fcfc1c604bf32aacccf94db221aae392721a8d102eba2892",
+      "source_characters": 385,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "67e60962fce6ade913cedcdb9653461e0e1ca10935109ba76c5028e2b5e0f8ce"
+        }
+      ]
+    },
+    {
+      "cell_index": 7,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "AUTOTUNE = tf.data.AUTOTUNE",
+      "source_sha256": "c2518bb6d8faa57ea7d01a04b457be97fc7e318d0e7f3bdc22ec80b6d4920749",
+      "source_characters": 453,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_index": 8,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "from tensorflow.keras import layers, models",
+      "source_sha256": "f125604a39bafb7a5c8e3b9292eb87e789b900dd02f744f99c5336fd7b8dfa63",
+      "source_characters": 1306,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "2cb1637c19a29db7c9ae90afc1f47b75f2b4a259e8ad255339472b541856242c"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "text_sha256": "842997a7a7d37e22cffa6f85f90c7ae91b195c2dabf14dc5b695f72ae7454c6d"
+        },
+        {
+          "index": 2,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "text_sha256": "d7287c055ccc2b655635b173ff61dfcc57d74d580e82c8223f1b717b8add80c9"
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "text_sha256": "24a0fdefbde26eabb2b4a16fac4bf48ca62a5478673ab6df364384df55339fab"
+        },
+        {
+          "index": 4,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "text_sha256": "6ed2296a01e768247c2348bf334006dca05860a5daff2ba01a8addf5e8635376"
+        },
+        {
+          "index": 5,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "text_sha256": "78ece11f56dc9e2f0a52ca58938196f0e95a88563fa767648628d97cb4c49e6e"
+        }
+      ]
+    },
+    {
+      "cell_index": 9,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "callbacks = [",
+      "source_sha256": "5715927bbe3c4569006ac138809605caea4569ca11257c0541709f0c86e25096",
+      "source_characters": 432,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "ab2553e625724afa4c3c7c94b30ed49b0ade448fe4c054616dd4b15b9d725b0c"
+        }
+      ]
+    },
+    {
+      "cell_index": 10,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "base_model.trainable = True",
+      "source_sha256": "53f3a4ff38f1ae965b3925d25bbc7cffe1ce4fbed4a2e1068d234e644e2dc940",
+      "source_characters": 588,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "48f8e5fe15f31509a75ade43785eb7f126eb895a650dd85433cf71f37df4bb94"
+        }
+      ]
+    },
+    {
+      "cell_index": 11,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "history_ft = model.fit(",
+      "source_sha256": "45b4668074f48ccac177a01a04bc9b212b876f66b0d56fd8ddda2e8b6548495d",
+      "source_characters": 250,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "e6606644b5c217f63a6441e5a78962c5b5b3551a5734dcb06d0acf9edde66cfc"
+        }
+      ]
+    },
+    {
+      "cell_index": 12,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "from sklearn.metrics import (accuracy_score, precision_score, recall_score,",
+      "source_sha256": "7c52a1735408df85d181356725eac067aef16bbd647f1ff888ecf175eb6d856e",
+      "source_characters": 2176,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "1db872f0baa7ae09464124d2a92c7f495640229d718ca1e95057dda70308b8b8"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html",
+            "application/vnd.google.colaboratory.intrinsic+json"
+          ],
+          "text_sha256": "b1d71746a78ea02765e81e7c6505dcbea05576e822d58acef32582541bd8a4c4"
+        }
+      ]
+    },
+    {
+      "cell_index": 13,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "eligible = validation_threshold_df.loc[",
+      "source_sha256": "94c23632e05c2d877a9eb835f703008d432c8a1e1dc46e504d2df5fcc8b4e4a6",
+      "source_characters": 1485,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "428917b939977f174d0c8339decf7c118977d44172f52b9c34ca9c69bbca8121"
+        }
+      ]
+    },
+    {
+      "cell_index": 14,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "# Test inference begins only after the validation policy has been saved.",
+      "source_sha256": "eb789a533102b1add61481c6ef7b090aeb2907227047b30e228236697f868bd5",
+      "source_characters": 1709,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "f1892be24df830ccd9bddee88ae7010892113cc687d418537de4ae4a399d6b5a"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8fc6237c5d3f71e5836366ffb9337886515806a125043d8fa07592dfb21f79e7",
+          "image_sha256": "ef91323c6899ab134e6bc1dc8bce7842e093a4a6d4be09077b5aa2756325c4f9",
+          "image_size": [
+            599,
+            470
+          ]
+        },
+        {
+          "index": 2,
+          "type": "execute_result",
+          "mime_types": [
+            "text/plain"
+          ],
+          "text_sha256": "a4e987d17584557e2fbed011cddf66dc5185338bc3ef33d4226f86c32b7364dd"
+        }
+      ]
+    },
+    {
+      "cell_index": 15,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "import cv2",
+      "source_sha256": "e5bbccb8f1bd16a424155982608eff99fad5954570a08b788700ed1cbab24e77",
+      "source_characters": 2928,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_index": 16,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "# Fixed first example from each class; no search for visually attractive results.",
+      "source_sha256": "26ce08336639a9caabadcd18db01bc0bedbfa9326be701babaaa85de6850575a",
+      "source_characters": 444,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "eadbe438081a6b38527c8c6718161bd848bb7619f5c7e2aceb942ee8fb3f9f32"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "f9f7d89e2626ca0b562dbcd2123e4092e1f9cd0ced92d4496ea68c11bb203787",
+          "image_size": [
+            1209,
+            395
+          ]
+        },
+        {
+          "index": 2,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "b4096908c2a89a6f9d6150acaea95b765d92af793e146473038514158cc392b9"
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "8c304a3f33c9251fd7bff09471fb3de9ad0fc63a7d847db0de52bd3b8979b30e",
+          "image_size": [
+            1209,
+            395
+          ]
+        }
+      ]
+    },
+    {
+      "cell_index": 17,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "def display_gradcam_clean(img_path, model, decision_threshold, alpha=0.30, heatmap_cutoff=0.25):",
+      "source_sha256": "fc5e7877d16a0a129157a5f5e845a4719dcbcfb81a781fe5415eca664fff6bff",
+      "source_characters": 361,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "eb949993db01578f5f27ed82b3618b0ed37d65520dbc5c948f9b9cbc53e1407f",
+          "image_size": [
+            1209,
+            395
+          ]
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "189efa4409531a09986967b644dc4f56ac4f17c1a34b3b8924672e73a564f2aa",
+          "image_size": [
+            1209,
+            395
+          ]
+        }
+      ]
+    },
+    {
+      "cell_index": 18,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "tn_indices = np.flatnonzero((y_true == 0) & (y_pred == 0))",
+      "source_sha256": "80727a47caa8cfad8dee3ffb5f17e4b045f79af3e95aafbcca32d401c7d9438a",
+      "source_characters": 433,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "27614d13e9de240d2e30f828a48dd6cbc17e87d6742fee9f7bf226434f3164c1"
+        }
+      ]
+    },
+    {
+      "cell_index": 19,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "# Illustrative first case in file order, not a representative or exhaustive explanation.",
+      "source_sha256": "360efbc670a21f46cf6a94c195fac0bacfe670dc9cc74b7a6574c46cf9ce54c7",
+      "source_characters": 439,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "5d6e34ef848ba2838efbaa3a0437b170add6cafa2b0a4e33eceb38e55f427bb8"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "eb949993db01578f5f27ed82b3618b0ed37d65520dbc5c948f9b9cbc53e1407f",
+          "image_size": [
+            1209,
+            395
+          ]
+        },
+        {
+          "index": 2,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "72731dac8900b5efaa87a47ed3d5645f79d93ffaa91df6736beb9824eef0bba2"
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "189efa4409531a09986967b644dc4f56ac4f17c1a34b3b8924672e73a564f2aa",
+          "image_size": [
+            1209,
+            395
+          ]
+        },
+        {
+          "index": 4,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "eac63d6654e4e0c07c7c84c97cc8d05ddbc2591af79aceb2494b025b6a75cd24"
+        },
+        {
+          "index": 5,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "584e5f189f30420da2a03ab66454e7463df14de9c66c0795d934294e943fa7e5",
+          "image_size": [
+            1209,
+            395
+          ]
+        },
+        {
+          "index": 6,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "177259f33531c02d2fd20367d9f144baf15085796b65e80b0f23f1f1ed9cc3c5"
+        },
+        {
+          "index": 7,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "3b9f552a1844d8dfa9ac2c676fa1bee21144202bad78f3a998e66907f201e27a",
+          "image_sha256": "34fe013b4198599d2e05173e9e6062c7de12a1459e75153e4ac07abbaf93223a",
+          "image_size": [
+            1209,
+            395
+          ]
+        }
+      ]
+    },
+    {
+      "cell_index": 20,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "print('VALIDATION threshold analysis (not test):')",
+      "source_sha256": "b75a345daab425723df90d9d7110c3a2cfd6534790cd4747d62bee424e8fec69",
+      "source_characters": 190,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "d2ce5f88ced0d0a61b38c60edf2d8f3fb279abea335588f23d91ba9e58161b94"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html",
+            "application/vnd.google.colaboratory.intrinsic+json"
+          ],
+          "text_sha256": "b1d71746a78ea02765e81e7c6505dcbea05576e822d58acef32582541bd8a4c4"
+        },
+        {
+          "index": 2,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "a811266d4f36d8281c900845c85ce0fd559a0331842192ffff073faf1819fb34"
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html",
+            "application/vnd.google.colaboratory.intrinsic+json"
+          ],
+          "text_sha256": "57f88775f8c4acdcd2400c007abb9b4c7dcdd7cc3597ea8c3c1fa9aa4a3721da"
+        }
+      ]
+    },
+    {
+      "cell_index": 21,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "# Consistency checks use the stored predictions; no threshold is tuned here.",
+      "source_sha256": "17b0d28b4d5350b92ff04ffe80ca0ec473870c1bcac03fd1a923b109d2b766a8",
+      "source_characters": 595,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "17bcb1c0503cc6f7f4e0e0e33392b0744d08a0a4a26aea3681a356a67f281cf7"
+        }
+      ]
+    },
+    {
+      "cell_index": 22,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "# Save one generated summary; do not copy metrics from earlier project versions.",
+      "source_sha256": "8991592f46740df964e207ce0434d4b5912c7be759ff704e609d5b9b5a4c0081",
+      "source_characters": 985,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "8057862ef5dc2ec6e874cfcf22d376640195e9d5181baddf4c277b26fca05ca6"
+        }
+      ]
+    },
+    {
+      "cell_index": 23,
+      "cell_type": "code",
+      "stage": "V2 corrected MobileNetV2",
+      "first_line": "import hashlib",
+      "source_sha256": "038043cc6aa924810b80b9ab3ae6376ef3dbbd6160e5cf1812753acf454abab4",
+      "source_characters": 1719,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "3786d7b6f543ba96a477ba9901c7fbaa2118d693ea42c4fce11558ee0fdea686"
+        }
+      ]
+    },
+    {
+      "cell_index": 24,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# V3 development audit. No new test predictions are computed here.",
+      "source_sha256": "6baf3b89d5f6421505acef4b926901dee0f3c3fe378968aa10ea751c87194bc7",
+      "source_characters": 1941,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "2b05d279a70cd521b06e4972c463842d24c705826a94cbfa470635e94b3dc92e"
+        }
+      ]
+    },
+    {
+      "cell_index": 25,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# V3: fixed development protocol, written before training candidates or scoring the historical test.",
+      "source_sha256": "4fa9f6589268a2a499eec083105953f80ede8445d024e2da5e6b4d3d280253cd",
+      "source_characters": 6421,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "4a25bf6b7220e392a383d8ca5e96996a6c47f3103f8e92701cafe35f98e461ef"
+        }
+      ]
+    },
+    {
+      "cell_index": 26,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# Model construction and validation-only checkpoint selection.",
+      "source_sha256": "d5af5949dd7df8cc61b167f368504829145455192297bbacc63c2857f0ed3bd5",
+      "source_characters": 8035,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "db15bf25a5c78fc63017fc7644dd59ea47ea5780f43b8a8092d30525cdf6b77e"
+        }
+      ]
+    },
+    {
+      "cell_index": 27,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "v3_mobile_result = v3_train_candidate('MobileNetV2')",
+      "source_sha256": "2d33b19cf88abaab855db16f53a532e4c2bf3a32cece1969ce2239563bca2d40",
+      "source_characters": 53,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "e5c4bc90836dcf37d61566ae2e3dc210e42b879fc1124a187d838f218ff0ee5b"
+        }
+      ]
+    },
+    {
+      "cell_index": 28,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "v3_dense_result = v3_train_candidate('DenseNet121')",
+      "source_sha256": "4be9be758dea179ec3bfe4f07118f3411066fd7bdf68300329011c0cd034f35e",
+      "source_characters": 52,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "21b014ee3fde5fd3e78ad756d2e8ce2627c0180d12948893820fd5e17a36e351"
+        }
+      ]
+    },
+    {
+      "cell_index": 29,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "v3_efficient_result = v3_train_candidate('EfficientNetB0')",
+      "source_sha256": "859fa36e8fcc31d18e3c1d31324951345432adeceeea130712a4ac7c88cb31ac",
+      "source_characters": 59,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "1b32320f82abe864058c2b962b05f60759b78977e68374c9f606ec6d4bb2be67"
+        }
+      ]
+    },
+    {
+      "cell_index": 30,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# Compare only predeclared candidates on the SAME grouped validation set.",
+      "source_sha256": "8a9049b79f4963f12490a7a78ebfdb736a5cdea8c3675678130235da80a30526",
+      "source_characters": 5531,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "17c60919b94533179c6565f79c4c1ab3e17b709443adcd65a4bdf2d6b026ec41"
+        }
+      ]
+    },
+    {
+      "cell_index": 31,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# One frozen historical-benchmark comparison. No further choice is made from these results.",
+      "source_sha256": "d97b418022d9b1e1eca5b9d4cff54333d62472e4e170fbf4e1d74f605fe3f191",
+      "source_characters": 3846,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "765ebc6f13b861eeffc130ccc69d1f2139084c9ca7c550f22d101b058590cdd0"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8fc6237c5d3f71e5836366ffb9337886515806a125043d8fa07592dfb21f79e7",
+          "image_sha256": "bdd2bbbc368cdd77afcc75fbdd92f927d8c4809f0e17daf225bcfb1b1fc93212",
+          "image_size": [
+            599,
+            470
+          ]
+        }
+      ]
+    },
+    {
+      "cell_index": 32,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# Member Grad-CAM for the class selected by the final model/ensemble.",
+      "source_sha256": "e7057e569441cc82414b32142513357ee9d405ee0602d9b8952aca60066d2b5d",
+      "source_characters": 3283,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "dfab861d3d0d2190028ab92f0413ad3f38de2fd0f601e24f04fd825fb43909e6",
+          "image_size": [
+            827,
+            390
+          ]
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "5d7459859bc41a7aeedf7d74af228a691bba26c8b54eddff645ca8eba1acb649",
+          "image_size": [
+            841,
+            390
+          ]
+        },
+        {
+          "index": 2,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "cac2b831782dfbc4f49fd57012f1d7d63c6faa127803069cff4090df371c3379",
+          "image_size": [
+            841,
+            390
+          ]
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "5fabb5cb62e0673f113806067762181172a5ad71638d482f23b01a1f428acdd8",
+          "image_size": [
+            827,
+            390
+          ]
+        },
+        {
+          "index": 4,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "bae10bfc6695ba8b4fa42ee9fff34ce41e3edc1ef95d21fa18e2483ee0c1cea8"
+        }
+      ]
+    },
+    {
+      "cell_index": 33,
+      "cell_type": "code",
+      "stage": "V3 grouped model development",
+      "first_line": "# Integrity checks, reproducible export and a precise result summary.",
+      "source_sha256": "2c8c00c81c05712a6382ebbef1877b9da11f4f98ddb98ec2b10cdb4a7fc772a5",
+      "source_characters": 6435,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "48c4625a7153f9eebfb03963e00338e44ef8a094490763bebf990391a8c9dc71"
+        }
+      ]
+    },
+    {
+      "cell_index": 34,
+      "cell_type": "code",
+      "stage": "V4 initial training / runtime loss",
+      "first_line": "# Focused second development stage: a harder filename-source holdout for NORMAL.",
+      "source_sha256": "a8d90990dbbdac57ff2debe66f1a279bca1e29f212d3ecd64138b99499c84361",
+      "source_characters": 4805,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "c650aec19ffcd6b3493d73b1043e25cbdca413e3045afba9038dac03244e242b"
+        }
+      ]
+    },
+    {
+      "cell_index": 35,
+      "cell_type": "code",
+      "stage": "V4 initial training / runtime loss",
+      "first_line": "# Fully serializable per-image photometric standardization; fresh ImageNet initialization.",
+      "source_sha256": "2155588dc1cedaeda4c16ad1fd8e210b1a83be0e649fcb82a3ce9d2b446f7e93",
+      "source_characters": 1740,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "d1969deb656a88b9ada572de3dafbce098cc898ee505f857cb8559d76780f2e5"
+        }
+      ]
+    },
+    {
+      "cell_index": 36,
+      "cell_type": "code",
+      "stage": "V4 initial training / runtime loss",
+      "first_line": "v4_result = v3_train_candidate('DenseNet121_Normalized')",
+      "source_sha256": "f3a9fd71b6462cd0d1db4721776801e6194202a0704743c22f9b40572e57987c",
+      "source_characters": 57,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "4eabcab6b769e78d7d871579b067b8bde773cbbe2ef2ea24195d7e1cbba095e7"
+        }
+      ]
+    },
+    {
+      "cell_index": 37,
+      "cell_type": "code",
+      "stage": "V4 initial training / runtime loss",
+      "first_line": "# Descriptive diagnosis of the already-scored V3 historical benchmark, not V4 model selection.",
+      "source_sha256": "35e67e340a03c8ba08b433c5c5942fd6107c0c6922f450d9db3440c91851ff87",
+      "source_characters": 1032,
+      "syntax": "PASS",
+      "execution_count": null,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "c51fd31d816a0c89110407b12f7defdf18326d150fe6fcbb246e2ee1c2196c8f"
+        }
+      ]
+    },
+    {
+      "cell_index": 38,
+      "cell_type": "code",
+      "stage": "V4 initial training / runtime loss",
+      "first_line": "from pathlib import Path",
+      "source_sha256": "d1bf8dea5a2489182222cb64ef18a4600c3c6eb382333c5d43efd719f0606db7",
+      "source_characters": 427,
+      "syntax": "PASS",
+      "execution_count": 2,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "28124d2386e43a3fb490ab260395a208ad5e2f7ce7d98b249d91128d18123cbb"
+        }
+      ]
+    },
+    {
+      "cell_index": 39,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# V4 reproducible recovery after Colab discarded the previous temporary runtime.",
+      "source_sha256": "f89648a3cc674a38a1e395a28975d9985e9b870980f6687067e9258077fef6f4",
+      "source_characters": 4604,
+      "syntax": "PASS",
+      "execution_count": 3,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "4e12ea3e7f36e2a1cd0e775b7ccf165bfae59bbcb142072d4e28cbc9dba34d17"
+        }
+      ]
+    },
+    {
+      "cell_index": 40,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# V3: fixed development protocol, written before training candidates or scoring the historical test.",
+      "source_sha256": "874547bfacd0ba413eba4c9f60472cff2d10cdee629314fb3ddac4eacd0e1cdc",
+      "source_characters": 11227,
+      "syntax": "PASS",
+      "execution_count": 4,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "f31cd413721960c9e67127a10ceae38bce0565bb8db1ff6f83d98ef94aaca297"
+        }
+      ]
+    },
+    {
+      "cell_index": 41,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# Model construction and validation-only checkpoint selection.",
+      "source_sha256": "789740a2e14dbe9fc87869a3f2ac57e42879ed6e27dbd24377383e4e55c138f3",
+      "source_characters": 9776,
+      "syntax": "PASS",
+      "execution_count": 5,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "29bd353217db0c7ea492379bcea4eee984a2a371597852deb6445404229581a6"
+        }
+      ]
+    },
+    {
+      "cell_index": 42,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "v4_result = v3_train_candidate('DenseNet121_Normalized')",
+      "source_sha256": "f3a9fd71b6462cd0d1db4721776801e6194202a0704743c22f9b40572e57987c",
+      "source_characters": 57,
+      "syntax": "PASS",
+      "execution_count": 6,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "740ad424832a5f486e2b6fae4b9daa89bbc3967e5383d4eaf4fd981d83596123"
+        }
+      ]
+    },
+    {
+      "cell_index": 43,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# V4 validation-only deployment policy, fixed before the V4 historical pass.",
+      "source_sha256": "e6184c9063afb9236d252af18a2bde12723f65e61230c8e7ac0b54a8815f521f",
+      "source_characters": 5169,
+      "syntax": "PASS",
+      "execution_count": 7,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "a3f698a0da1191b4d16eca97fae9f2f2ad84d5e18ce2336990aa0618e214b7aa"
+        }
+      ]
+    },
+    {
+      "cell_index": 44,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# One frozen historical-benchmark comparison. No further choice is made from these results.",
+      "source_sha256": "8d71fbfddc53425da70b3f353e0a6e076acabbc73dfb5fb54b2fc1b4bbe6f39c",
+      "source_characters": 4203,
+      "syntax": "PASS",
+      "execution_count": 8,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "16060f193d35c81587499638526d0039e9d82002be8dcdee0f69e6ea90c81ce7"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8fc6237c5d3f71e5836366ffb9337886515806a125043d8fa07592dfb21f79e7",
+          "image_sha256": "63fee18e104758fd6623419dc99c1016fa04140cb68eb011d2a555fb7b1dbcff",
+          "image_size": [
+            599,
+            470
+          ]
+        },
+        {
+          "index": 2,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "2f3d0b1221c6e87aad828ff4b0c2048e62d8c178950d9be24acc9efd0fec3aaf"
+        }
+      ]
+    },
+    {
+      "cell_index": 45,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# Member Grad-CAM for the class selected by the final model/ensemble.",
+      "source_sha256": "e7057e569441cc82414b32142513357ee9d405ee0602d9b8952aca60066d2b5d",
+      "source_characters": 3283,
+      "syntax": "PASS",
+      "execution_count": 9,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "42586e977256e2caa76bd2e3610fa142d40685d1307e32c41442251be4535a0f",
+          "image_size": [
+            850,
+            390
+          ]
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "03cbeded66e109480110f714f913f56c369364f5baba7dc5a2457231887a7cd5",
+          "image_size": [
+            865,
+            390
+          ]
+        },
+        {
+          "index": 2,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "1d70fb77c6cf7488120481d32968de8b20d1408d919d2373ccc5847b2c678729",
+          "image_size": [
+            865,
+            390
+          ]
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "06bb5a1ab249c619215e7cbfeb978380efbdb54f623b3c4221393fec7d3bff99",
+          "image_size": [
+            850,
+            390
+          ]
+        },
+        {
+          "index": 4,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "bae10bfc6695ba8b4fa42ee9fff34ce41e3edc1ef95d21fa18e2483ee0c1cea8"
+        }
+      ]
+    },
+    {
+      "cell_index": 46,
+      "cell_type": "code",
+      "stage": "V4 runtime recovery and evaluation",
+      "first_line": "# Integrity checks, reproducible export and a precise result summary.",
+      "source_sha256": "269e5860fbfa5cad3f5ee527318e045d5c3238b7c9ffc6700907fcbabbdec691",
+      "source_characters": 7329,
+      "syntax": "PASS",
+      "execution_count": 10,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "ddd203c30fa2a1c612860d539263165168153e2daa56604a330093964a071367"
+        }
+      ]
+    },
+    {
+      "cell_index": 47,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# V5 is a NEW adaptive development experiment after V4, whose frozen results are preserved.",
+      "source_sha256": "cc808ab92e9f3bb72274968e9e96ea5a168b8122e5800046d7c503bdb6e6a3c9",
+      "source_characters": 4824,
+      "syntax": "PASS",
+      "execution_count": 11,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "33c65ccee4d1dbd0eab8d536597db0b5edfe3e2a87e82a4fbbd5ac145c9fbb9f"
+        }
+      ]
+    },
+    {
+      "cell_index": 48,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# Official API: https://keras.io/api/applications/efficientnet_v2/efficientnet_v2_models/",
+      "source_sha256": "0ca56c6d24a759fd7ba6f25cbafa4881b8632ae6a6838e724942c14ed038ede8",
+      "source_characters": 1324,
+      "syntax": "PASS",
+      "execution_count": 12,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "365ed0147484cc1a73f61825589c9c9215f4fb5afc2556db849678b2d7cf60e8"
+        }
+      ]
+    },
+    {
+      "cell_index": 49,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "v5_candidate=v3_train_candidate('EfficientNetV2B0_320')",
+      "source_sha256": "7e44b04575daaa50d2abdc53d6760eb916fbec5b4ace4475a7262a4fb3785b5a",
+      "source_characters": 56,
+      "syntax": "PASS",
+      "execution_count": 13,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "6909a511d642adab6d0854c8a045eb7592111aa1b27ec79951088f626bec174e"
+        }
+      ]
+    },
+    {
+      "cell_index": 50,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# V5 validation-only deployment policy, fixed before the V5 historical pass.",
+      "source_sha256": "37b000d6bb21b4b1d5c4d95bea13d1b361f83c16482d9d92a03db6fa4141221e",
+      "source_characters": 5167,
+      "syntax": "PASS",
+      "execution_count": 14,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "125bff733057ca16b6bebc9a3139c8ccc952e2e0893d40d5b093507dae032b67"
+        }
+      ]
+    },
+    {
+      "cell_index": 51,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# One frozen historical-benchmark comparison. No further choice is made from these results.",
+      "source_sha256": "7555dc68bd287ddce0b42a28fcab2a26c9ef03feed4de3465d0591d8714771de",
+      "source_characters": 4447,
+      "syntax": "PASS",
+      "execution_count": 15,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "6f4c4906c649d6dbeaf7d6b9171b2b23308369fbbdc88fc22d46b34b7fc0d5ec"
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8fc6237c5d3f71e5836366ffb9337886515806a125043d8fa07592dfb21f79e7",
+          "image_sha256": "19f8ca9de88730bd956edd90b923242570d46f39d3a1b93551d4f842332c2a47",
+          "image_size": [
+            599,
+            470
+          ]
+        },
+        {
+          "index": 2,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "b74ac7994f4511cbeecbdca21bb592ea0efba765b032b2bc0616fa7b8d8c9040"
+        }
+      ]
+    },
+    {
+      "cell_index": 52,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# Member Grad-CAM for the class selected by the final model/ensemble.",
+      "source_sha256": "7fd47c323dff3647f0f6cc40eb590f9531bdd80208c592cb741e5cfaa9b4f27f",
+      "source_characters": 3283,
+      "syntax": "PASS",
+      "execution_count": 16,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "64734e6910a40614469684ede1240727f7e21cef826b460de105c11caf81ba33",
+          "image_size": [
+            833,
+            390
+          ]
+        },
+        {
+          "index": 1,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "fc9c4ab73f3857691f6d618555627cb1ab47149ef718f5f69a308cf79438dcd1",
+          "image_size": [
+            847,
+            390
+          ]
+        },
+        {
+          "index": 2,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "e4619221421d034000d34d3aaf4f2aefb20d4b5673332755e1cf0a4db04d9e0e",
+          "image_size": [
+            847,
+            390
+          ]
+        },
+        {
+          "index": 3,
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "text_sha256": "8bcc051ffd45a56444b52e4a60f2e18fb302acdfc798fd4d0da5a5b02d7c14c3",
+          "image_sha256": "0aac3439ac6b0ffaf2520101248978e4cb0e503d15a6c678c17b58c37fb2983c",
+          "image_size": [
+            832,
+            390
+          ]
+        },
+        {
+          "index": 4,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "bae10bfc6695ba8b4fa42ee9fff34ce41e3edc1ef95d21fa18e2483ee0c1cea8"
+        }
+      ]
+    },
+    {
+      "cell_index": 53,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# Integrity checks, reproducible export and a precise result summary.",
+      "source_sha256": "08c3839eaeb5bf02bdffb7002c2bb63d1413daadc20aa91944da8fe90d0668fd",
+      "source_characters": 7378,
+      "syntax": "PASS",
+      "execution_count": 17,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "0314e217491679eaf44208070bc64759d7c14159a311504f9f133452d185565c"
+        }
+      ]
+    },
+    {
+      "cell_index": 54,
+      "cell_type": "code",
+      "stage": "V5 EfficientNetV2B0",
+      "first_line": "# Plain-text final summary for review; this does not select or retune any model.",
+      "source_sha256": "aeafb18e397ed9636621db9cd90dd426d83b79522e0f582ab4905c6edeffe9a7",
+      "source_characters": 1595,
+      "syntax": "PASS",
+      "execution_count": 18,
+      "outputs": [
+        {
+          "index": 0,
+          "type": "stream",
+          "mime_types": [],
+          "text_sha256": "7b68e6f92a1e06e8964dda9bc71f6c0bc5d1577e336a38bd770143d50734c124"
+        }
+      ]
+    }
+  ],
+  "presentation_note": "The original export path is omitted for sharing; all source/output digests and cell audit records are unchanged. The byte-identical source is included at the relative archive path."
+}

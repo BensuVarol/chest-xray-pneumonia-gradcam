@@ -1,0 +1,56 @@
+cell_index,cell_type,stage,first_line,source_sha256,source_characters,syntax,execution_count
+0,markdown,Overview and evidence boundary,# Chest X-Ray Pneumonia: V5 and Development Record,73f9bd94190c1abfc665904dbbd6ad3c4659e676df19b61c232d379a905130ee,2192,markdown,
+1,code,V2 corrected MobileNetV2,import os,a16f924a97962146677ba69224af8d24988f06d562c23c7d0d9acc1271b1e506,679,PASS,
+2,code,V2 corrected MobileNetV2,# Public dataset access; credentials are not stored in this notebook.,c8008862489d8cd16d7c4332c90fbf943fb0cd25e988975f8f3d6adeff414bf5,304,PASS,
+3,code,V2 corrected MobileNetV2,from pathlib import Path,b3b1cede7773d96cbd46b0bb3b557a1c0d9041e36d69c4b2365a786304618b12,903,PASS,
+4,code,V2 corrected MobileNetV2,"IMAGE_SUFFIXES = {'.jpg', '.jpeg', '.png', '.bmp', '.gif'}",3fe92aedcf9d254c6d9b9ac1309ccdc270b7418ae6ec82de82135e10af9ca3b3,359,PASS,
+5,code,V2 corrected MobileNetV2,"IMG_SIZE = (224, 224)",0d9329d811a44b073828184dc08e12849117a0f477866051c2480a13df2a896a,2287,PASS,
+6,code,V2 corrected MobileNetV2,from collections import Counter,870be78316d16165fcfc1c604bf32aacccf94db221aae392721a8d102eba2892,385,PASS,
+7,code,V2 corrected MobileNetV2,AUTOTUNE = tf.data.AUTOTUNE,c2518bb6d8faa57ea7d01a04b457be97fc7e318d0e7f3bdc22ec80b6d4920749,453,PASS,
+8,code,V2 corrected MobileNetV2,"from tensorflow.keras import layers, models",f125604a39bafb7a5c8e3b9292eb87e789b900dd02f744f99c5336fd7b8dfa63,1306,PASS,
+9,code,V2 corrected MobileNetV2,callbacks = [,5715927bbe3c4569006ac138809605caea4569ca11257c0541709f0c86e25096,432,PASS,
+10,code,V2 corrected MobileNetV2,base_model.trainable = True,53f3a4ff38f1ae965b3925d25bbc7cffe1ce4fbed4a2e1068d234e644e2dc940,588,PASS,
+11,code,V2 corrected MobileNetV2,history_ft = model.fit(,45b4668074f48ccac177a01a04bc9b212b876f66b0d56fd8ddda2e8b6548495d,250,PASS,
+12,code,V2 corrected MobileNetV2,"from sklearn.metrics import (accuracy_score, precision_score, recall_score,",7c52a1735408df85d181356725eac067aef16bbd647f1ff888ecf175eb6d856e,2176,PASS,
+13,code,V2 corrected MobileNetV2,eligible = validation_threshold_df.loc[,94c23632e05c2d877a9eb835f703008d432c8a1e1dc46e504d2df5fcc8b4e4a6,1485,PASS,
+14,code,V2 corrected MobileNetV2,# Test inference begins only after the validation policy has been saved.,eb789a533102b1add61481c6ef7b090aeb2907227047b30e228236697f868bd5,1709,PASS,
+15,code,V2 corrected MobileNetV2,import cv2,e5bbccb8f1bd16a424155982608eff99fad5954570a08b788700ed1cbab24e77,2928,PASS,
+16,code,V2 corrected MobileNetV2,# Fixed first example from each class; no search for visually attractive results.,26ce08336639a9caabadcd18db01bc0bedbfa9326be701babaaa85de6850575a,444,PASS,
+17,code,V2 corrected MobileNetV2,"def display_gradcam_clean(img_path, model, decision_threshold, alpha=0.30, heatmap_cutoff=0.25):",fc5e7877d16a0a129157a5f5e845a4719dcbcfb81a781fe5415eca664fff6bff,361,PASS,
+18,code,V2 corrected MobileNetV2,tn_indices = np.flatnonzero((y_true == 0) & (y_pred == 0)),80727a47caa8cfad8dee3ffb5f17e4b045f79af3e95aafbcca32d401c7d9438a,433,PASS,
+19,code,V2 corrected MobileNetV2,"# Illustrative first case in file order, not a representative or exhaustive explanation.",360efbc670a21f46cf6a94c195fac0bacfe670dc9cc74b7a6574c46cf9ce54c7,439,PASS,
+20,code,V2 corrected MobileNetV2,print('VALIDATION threshold analysis (not test):'),b75a345daab425723df90d9d7110c3a2cfd6534790cd4747d62bee424e8fec69,190,PASS,
+21,code,V2 corrected MobileNetV2,# Consistency checks use the stored predictions; no threshold is tuned here.,17b0d28b4d5350b92ff04ffe80ca0ec473870c1bcac03fd1a923b109d2b766a8,595,PASS,
+22,code,V2 corrected MobileNetV2,# Save one generated summary; do not copy metrics from earlier project versions.,8991592f46740df964e207ce0434d4b5912c7be759ff704e609d5b9b5a4c0081,985,PASS,
+23,code,V2 corrected MobileNetV2,import hashlib,038043cc6aa924810b80b9ab3ae6376ef3dbbd6160e5cf1812753acf454abab4,1719,PASS,
+24,code,V3 grouped model development,# V3 development audit. No new test predictions are computed here.,6baf3b89d5f6421505acef4b926901dee0f3c3fe378968aa10ea751c87194bc7,1941,PASS,
+25,code,V3 grouped model development,"# V3: fixed development protocol, written before training candidates or scoring the historical test.",4fa9f6589268a2a499eec083105953f80ede8445d024e2da5e6b4d3d280253cd,6421,PASS,
+26,code,V3 grouped model development,# Model construction and validation-only checkpoint selection.,d5af5949dd7df8cc61b167f368504829145455192297bbacc63c2857f0ed3bd5,8035,PASS,
+27,code,V3 grouped model development,v3_mobile_result = v3_train_candidate('MobileNetV2'),2d33b19cf88abaab855db16f53a532e4c2bf3a32cece1969ce2239563bca2d40,53,PASS,
+28,code,V3 grouped model development,v3_dense_result = v3_train_candidate('DenseNet121'),4be9be758dea179ec3bfe4f07118f3411066fd7bdf68300329011c0cd034f35e,52,PASS,
+29,code,V3 grouped model development,v3_efficient_result = v3_train_candidate('EfficientNetB0'),859fa36e8fcc31d18e3c1d31324951345432adeceeea130712a4ac7c88cb31ac,59,PASS,
+30,code,V3 grouped model development,# Compare only predeclared candidates on the SAME grouped validation set.,8a9049b79f4963f12490a7a78ebfdb736a5cdea8c3675678130235da80a30526,5531,PASS,
+31,code,V3 grouped model development,# One frozen historical-benchmark comparison. No further choice is made from these results.,d97b418022d9b1e1eca5b9d4cff54333d62472e4e170fbf4e1d74f605fe3f191,3846,PASS,
+32,code,V3 grouped model development,# Member Grad-CAM for the class selected by the final model/ensemble.,e7057e569441cc82414b32142513357ee9d405ee0602d9b8952aca60066d2b5d,3283,PASS,
+33,code,V3 grouped model development,"# Integrity checks, reproducible export and a precise result summary.",2c8c00c81c05712a6382ebbef1877b9da11f4f98ddb98ec2b10cdb4a7fc772a5,6435,PASS,
+34,code,V4 initial training / runtime loss,# Focused second development stage: a harder filename-source holdout for NORMAL.,a8d90990dbbdac57ff2debe66f1a279bca1e29f212d3ecd64138b99499c84361,4805,PASS,
+35,code,V4 initial training / runtime loss,# Fully serializable per-image photometric standardization; fresh ImageNet initialization.,2155588dc1cedaeda4c16ad1fd8e210b1a83be0e649fcb82a3ce9d2b446f7e93,1740,PASS,
+36,code,V4 initial training / runtime loss,v4_result = v3_train_candidate('DenseNet121_Normalized'),f3a9fd71b6462cd0d1db4721776801e6194202a0704743c22f9b40572e57987c,57,PASS,
+37,code,V4 initial training / runtime loss,"# Descriptive diagnosis of the already-scored V3 historical benchmark, not V4 model selection.",35e67e340a03c8ba08b433c5c5942fd6107c0c6922f450d9db3440c91851ff87,1032,PASS,
+38,code,V4 initial training / runtime loss,from pathlib import Path,d1bf8dea5a2489182222cb64ef18a4600c3c6eb382333c5d43efd719f0606db7,427,PASS,2
+39,code,V4 runtime recovery and evaluation,# V4 reproducible recovery after Colab discarded the previous temporary runtime.,f89648a3cc674a38a1e395a28975d9985e9b870980f6687067e9258077fef6f4,4604,PASS,3
+40,code,V4 runtime recovery and evaluation,"# V3: fixed development protocol, written before training candidates or scoring the historical test.",874547bfacd0ba413eba4c9f60472cff2d10cdee629314fb3ddac4eacd0e1cdc,11227,PASS,4
+41,code,V4 runtime recovery and evaluation,# Model construction and validation-only checkpoint selection.,789740a2e14dbe9fc87869a3f2ac57e42879ed6e27dbd24377383e4e55c138f3,9776,PASS,5
+42,code,V4 runtime recovery and evaluation,v4_result = v3_train_candidate('DenseNet121_Normalized'),f3a9fd71b6462cd0d1db4721776801e6194202a0704743c22f9b40572e57987c,57,PASS,6
+43,code,V4 runtime recovery and evaluation,"# V4 validation-only deployment policy, fixed before the V4 historical pass.",e6184c9063afb9236d252af18a2bde12723f65e61230c8e7ac0b54a8815f521f,5169,PASS,7
+44,code,V4 runtime recovery and evaluation,# One frozen historical-benchmark comparison. No further choice is made from these results.,8d71fbfddc53425da70b3f353e0a6e076acabbc73dfb5fb54b2fc1b4bbe6f39c,4203,PASS,8
+45,code,V4 runtime recovery and evaluation,# Member Grad-CAM for the class selected by the final model/ensemble.,e7057e569441cc82414b32142513357ee9d405ee0602d9b8952aca60066d2b5d,3283,PASS,9
+46,code,V4 runtime recovery and evaluation,"# Integrity checks, reproducible export and a precise result summary.",269e5860fbfa5cad3f5ee527318e045d5c3238b7c9ffc6700907fcbabbdec691,7329,PASS,10
+47,code,V5 EfficientNetV2B0,"# V5 is a NEW adaptive development experiment after V4, whose frozen results are preserved.",cc808ab92e9f3bb72274968e9e96ea5a168b8122e5800046d7c503bdb6e6a3c9,4824,PASS,11
+48,code,V5 EfficientNetV2B0,# Official API: https://keras.io/api/applications/efficientnet_v2/efficientnet_v2_models/,0ca56c6d24a759fd7ba6f25cbafa4881b8632ae6a6838e724942c14ed038ede8,1324,PASS,12
+49,code,V5 EfficientNetV2B0,v5_candidate=v3_train_candidate('EfficientNetV2B0_320'),7e44b04575daaa50d2abdc53d6760eb916fbec5b4ace4475a7262a4fb3785b5a,56,PASS,13
+50,code,V5 EfficientNetV2B0,"# V5 validation-only deployment policy, fixed before the V5 historical pass.",37b000d6bb21b4b1d5c4d95bea13d1b361f83c16482d9d92a03db6fa4141221e,5167,PASS,14
+51,code,V5 EfficientNetV2B0,# One frozen historical-benchmark comparison. No further choice is made from these results.,7555dc68bd287ddce0b42a28fcab2a26c9ef03feed4de3465d0591d8714771de,4447,PASS,15
+52,code,V5 EfficientNetV2B0,# Member Grad-CAM for the class selected by the final model/ensemble.,7fd47c323dff3647f0f6cc40eb590f9531bdd80208c592cb741e5cfaa9b4f27f,3283,PASS,16
+53,code,V5 EfficientNetV2B0,"# Integrity checks, reproducible export and a precise result summary.",08c3839eaeb5bf02bdffb7002c2bb63d1413daadc20aa91944da8fe90d0668fd,7378,PASS,17
+54,code,V5 EfficientNetV2B0,# Plain-text final summary for review; this does not select or retune any model.,aeafb18e397ed9636621db9cd90dd426d83b79522e0f582ab4905c6edeffe9a7,1595,PASS,18

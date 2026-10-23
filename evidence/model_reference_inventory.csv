@@ -1,0 +1,9 @@
+stage,reference,status,sha256,review_scope
+V2,pneumonia_mobilenetv2_gradcam.keras,available in associated archive,50f416ad4b46d648a72ad54986a04b623cf4d4a18481910427c973c785a1eee5,file identity only; inference not repeated
+V4,selected_model.keras,available in associated archive,ada422056bcd488a75778a34287e33019e6986dd5efbe1854651c5f7ae042258,file identity only; inference not repeated
+V5,selected_model.keras,available in associated archive,2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9,fresh inference tested
+V1,Original baseline model/predictions,historical counts/notes only in source,,not independently reloaded or re-scored
+V3,selected_model.keras (b78d5513...),reference in original cell 33; not bundled with V5,b78d551302fcc5b48b4e5289701ad4f931c3cc55238ed01445f1aa4bc4574bf4,saved source reference; file not revalidated
+V3/V4/V5,*_best.weights.h5,intentionally excluded by original delivery export,,not required for saved inference; original training resume unavailable
+V3/V4,MobileNetV2.keras / DenseNet121.keras / EfficientNetB0.keras / DenseNet121_Normalized.keras,candidate references; redundant candidates excluded from selected-model package,,training code/logs inspected; candidate inference not repeated
+V5,EfficientNetV2B0_320.keras,redundant candidate filename excluded; selected_model.keras is bundled,,selected-model checksum is authoritative

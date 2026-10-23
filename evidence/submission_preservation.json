@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "source_archive_unchanged": true,
+  "model_unchanged": true,
+  "eight_embedded_pngs_byte_identical_to_prior_review": true,
+  "moved_prior_result_directories": 3,
+  "previous_full_review_zip_retained": true,
+  "previous_archive_sha256": "da081c9f15f45f7733b0b82e00d6c0b8900cd4fdfdd207257bdd5e63d9fdc36c",
+  "note": "Earlier incomplete/completed runs and superseded evidence were moved into the local pre-submission backup, not deleted. The GitHub-ready project contains only the latest completed run."
+}

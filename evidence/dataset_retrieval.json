@@ -1,0 +1,12 @@
+{
+  "provider": "Official Kaggle SDK dataset version 2 archive",
+  "canonical_images": 5856,
+  "selected_members_crc_check": "PASS",
+  "full_archive_md5_checked": false,
+  "duplicate_tree_and_mac_metadata_excluded": true,
+  "output_directory": "<external dataset directory; personal path omitted for sharing>",
+  "missing_compressed_bytes_transferred": 230316416,
+  "elapsed_seconds": 220.0779999999795,
+  "note": "Notebook verifies the available original SHA-256 hashes after this selected-tree extraction. No KaggleHub full-bundle completion marker is created.",
+  "presentation_note": "Only the local directory string was omitted; retrieval counts and integrity scope are unchanged. The raw record is retained in the local pre-submission backup."
+}

@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "dependency_cell_indices": "zero-based",
+  "required_files": [
+    {
+      "file": "archive/Chest_XRay_Pneumonia_V5_Development_Record.ipynb",
+      "exists": true,
+      "bytes": 6793240,
+      "sha256": "d3e37ab99931ea8aae0b0709d0fef20b10884fb1fede769e664733ae6335bcb6",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": null
+    },
+    {
+      "file": "assets/historical_development_comparison.csv",
+      "exists": true,
+      "bytes": 1089,
+      "sha256": "e5919318c96441c9e9c953d2eb8344855e6770379a0c403710beeb3795eeb844",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/integrity_manifest.json",
+      "exists": true,
+      "bytes": 1592,
+      "sha256": "7f8283657776bc2e25d8e87f4346099dce5f96cc7eba86d59fbe1466deba3bb0",
+      "direct_consumer_cells": [
+        2
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_calibration_addendum.json",
+      "exists": true,
+      "bytes": 548,
+      "sha256": "f43cbfe1f55499b28b5a397649fba1fc7957b8c84ffe6c6bb3c381e74a932ea1",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_checkpoint_selection.csv",
+      "exists": true,
+      "bytes": 2456,
+      "sha256": "0d52c91e0a5dbf94a1a42e9c7f6d4a3ff82d233348cbe11054d2e83276cde8f8",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_development_protocol.json",
+      "exists": true,
+      "bytes": 2572,
+      "sha256": "485d6aecd2ef592a1e7594d0eea6b2775a39174d181329f8d64645e97168cde9",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_environment.json",
+      "exists": true,
+      "bytes": 406,
+      "sha256": "abf9ab095dba0b175d68eb31418c4afa84192b4550a1ad1c6aa3c5d87d9c4aa6",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_historical_metrics.json",
+      "exists": true,
+      "bytes": 504,
+      "sha256": "d9cefe2f0bd0a9b60a83aa4c118cc57171e534db2d50c7b3aa2f36712692945d",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_historical_predictions.csv",
+      "exists": true,
+      "bytes": 33748,
+      "sha256": "64daefe155b6f493cbf982acf0c3da6ff7830358ea80c9e32ade76291f8d2e3a",
+      "direct_consumer_cells": [
+        19
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_locked_policy.json",
+      "exists": true,
+      "bytes": 5305,
+      "sha256": "bc091d211a1e15647b39a6a4054fabd0ab7c7421e926b24f2600fd398dc1d871",
+      "direct_consumer_cells": [
+        2
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_prior_split_audit.json",
+      "exists": true,
+      "bytes": 416,
+      "sha256": "5bb5314da370ff33397828a92771681a2e073cae0b851131762b4820cf464be3",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_split_manifest.json",
+      "exists": true,
+      "bytes": 1244559,
+      "sha256": "19c36dec4890911771fec2d373461092046648fb0a4876730622c8898f92c57c",
+      "direct_consumer_cells": [
+        2
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_v5_training_stdout.txt",
+      "exists": true,
+      "bytes": 5355,
+      "sha256": "4283226468111d9fc684919ef8c39765541f2f3ff5f12535230c8a66f86c1465",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/original_validation_predictions.csv",
+      "exists": true,
+      "bytes": 52243,
+      "sha256": "05e1fdc4e9e6c497b015c46ece362547481af16f5880a3e383fa7a12b77b2c20",
+      "direct_consumer_cells": [
+        17
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/recovered_training_history.csv",
+      "exists": true,
+      "bytes": 901,
+      "sha256": "f57b21265a0d9a02ab4f0e24cbe87b35dc867a7fb9490f623fd292b0788016f6",
+      "direct_consumer_cells": [
+        15
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/selected_model.keras",
+      "exists": true,
+      "bytes": 24643957,
+      "sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+      "direct_consumer_cells": [
+        11
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "assets/training_history_provenance.json",
+      "exists": true,
+      "bytes": 427,
+      "sha256": "27ae77cc105edc6d4048c5f8f6876d4685d586b65e977e6a1e863b8871c930e6",
+      "direct_consumer_cells": [
+        15
+      ],
+      "integrity_gate_cell": 2
+    },
+    {
+      "file": "requirements.txt",
+      "exists": true,
+      "bytes": 487,
+      "sha256": "c4f836aa79079d5a6d134c5c8a3cfe8352c622b2550ceba79164fabdbaf2a81d",
+      "direct_consumer_cells": [],
+      "integrity_gate_cell": null
+    }
+  ],
+  "missing_required_files": [],
+  "source_metadata_matches_archive": true,
+  "source_sha256": "d3e37ab99931ea8aae0b0709d0fef20b10884fb1fede769e664733ae6335bcb6",
+  "model_sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "notebook_source_matches_latest_execution": true,
+  "personal_paths_in_current_notebook": false,
+  "latest_result_files_checked": [
+    "all_misclassifications.csv",
+    "config.json",
+    "conflicting_hash_labels.csv",
+    "example_predictions.csv",
+    "example_predictions.png",
+    "FN_gradcam.png",
+    "FP_gradcam.png",
+    "fresh_vs_archived_metrics.csv",
+    "historical_evaluation_curves.png",
+    "historical_exact_duplicate_files.csv",
+    "historical_metrics.json",
+    "historical_predictions.csv",
+    "historical_unique_metrics.json",
+    "historical_unique_predictions.csv",
+    "image_inventory.csv",
+    "locked_run_policy.json",
+    "normal_filename_group_errors.csv",
+    "split_verification.json",
+    "TN_gradcam.png",
+    "TP_gradcam.png",
+    "training_curves.png",
+    "training_metric_history.csv",
+    "validation_predictions.csv",
+    "validation_threshold_grid.csv",
+    "validation_threshold_selection.png",
+    "verification.json"
+  ],
+  "readme_required_sections_present": true,
+  "readme_results_consistent": true,
+  "original_archive_privacy_sanitized": false,
+  "original_training_reproduced": false,
+  "colab_execution_repeated": false,
+  "unavailable_nonblocking_historical_assets": [
+    "Complete V1 model/predictions",
+    "All V3 candidate models/predictions",
+    "Original intermediate epoch checkpoints",
+    "Original optimizer state",
+    "Native original Keras History objects"
+  ]
+}

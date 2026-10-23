@@ -1,0 +1,21 @@
+{
+  "status": "PASSED_DEFAULT_SAVED_MODEL_WORKFLOW",
+  "execution_engine": "nbclient; new ipykernel subprocess in the pinned dedicated verification environment",
+  "started_at_utc": "2026-10-22T18:59:44.443635+00:00",
+  "finished_at_utc": "2026-10-22T19:01:10.985353+00:00",
+  "elapsed_seconds": 86.54700000002049,
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_interpreter": "python.exe",
+  "cpu_only": true,
+  "training_rerun": false,
+  "environment_recreated_for_this_run": false,
+  "fresh_kernel_for_this_run": true,
+  "notebook_source_sha256": "422d5c3d049e7ba33028065b5b8ef66df7f4835c078d8cd7bbb52654c3b76cb5",
+  "executed_code_cells": 16,
+  "total_code_cells": 16,
+  "error_outputs": 0,
+  "original_source_sha256": "d3e37ab99931ea8aae0b0709d0fef20b10884fb1fede769e664733ae6335bcb6",
+  "original_source_unchanged": true,
+  "failure": null
+}

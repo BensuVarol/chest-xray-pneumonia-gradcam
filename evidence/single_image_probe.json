@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Single actual image probe; does not establish full-dataset reproduction",
+  "file": "test/NORMAL/IM-0001-0001.jpeg",
+  "image_hash_matches": true,
+  "archived_score": 0.31323585,
+  "fresh_cpu_score": 0.3132360875606537,
+  "absolute_difference": 2.375606537041719e-07,
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2"
+}

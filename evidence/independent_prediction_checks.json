@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "scope": "Archived prediction arithmetic and artifact identity; not fresh image inference",
+  "model_sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "validation_selection": {
+    "n": 956,
+    "threshold": 0.72,
+    "tn": 267,
+    "fp": 2,
+    "fn": 34,
+    "tp": 653,
+    "accuracy": 0.9623430962343096,
+    "precision": 0.9969465648854962,
+    "recall": 0.950509461426492,
+    "specificity": 0.9925650557620818,
+    "f1": 0.9731743666169895,
+    "roc_auc": 0.9969535126594266
+  },
+  "historical_metrics": {
+    "n": 624,
+    "threshold": 0.72,
+    "tn": 186,
+    "fp": 48,
+    "fn": 10,
+    "tp": 380,
+    "accuracy": 0.907051282051282,
+    "precision": 0.8878504672897196,
+    "recall": 0.9743589743589743,
+    "specificity": 0.7948717948717948,
+    "f1": 0.9290953545232273,
+    "roc_auc": 0.9745671707210168
+  },
+  "unique_byte_metrics": {
+    "n": 618,
+    "threshold": 0.72,
+    "tn": 185,
+    "fp": 46,
+    "fn": 10,
+    "tp": 377,
+    "accuracy": 0.9093851132686084,
+    "precision": 0.8912529550827423,
+    "recall": 0.9741602067183462,
+    "specificity": 0.8008658008658008,
+    "f1": 0.9308641975308642,
+    "roc_auc": 0.9746076490262536
+  },
+  "extra_duplicate_files": 6,
+  "conflicting_hash_labels": 0
+}
