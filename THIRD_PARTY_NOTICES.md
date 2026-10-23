@@ -1,0 +1,9 @@
+# Data, figures and third-party notices
+
+Dataset attribution: Daniel Kermany, Kang Zhang and Michael Goldbaum, *Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification*, Mendeley Data, version 2, DOI [10.17632/rscbjbr9sj.2](https://data.mendeley.com/datasets/rscbjbr9sj/2). The upstream record lists [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Actual files for this project were obtained from Paul Mooney's [Kaggle mirror](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia).
+
+The upstream licence listing was directly checked on 22 October 2026. The Kaggle page did not expose readable licence text to the review tool, so its current licence field was not independently confirmed. No blanket claim of cleared rights is made for every file or pretrained weight.
+
+Raw images are not included. Displayed examples are resized from the dataset; Grad-CAM figures add colour heatmaps and overlays. Labels remain unchanged. These transformations are for research illustration, with no endorsement by the data creators implied. Retain this attribution and the licence link when sharing the displayed examples. The Mendeley description's independent-patient statement explicitly concerns OCT; it is not used as proof of chest-X-ray patient independence.
+
+TensorFlow, Keras and the other installed libraries retain their own licences. ImageNet initialization is documented in the source; the saved trained weights alone do not establish initialization history or a universal right to relicense upstream material. No new repository-wide licence has been assigned to the author's code or model. Ownership, any institutional obligations and the intended public model/code licence remain the owner's responsibility before broad redistribution. This review prepares files for academic inspection and does not publish them.

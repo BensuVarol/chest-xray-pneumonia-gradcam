@@ -1,25 +1,27 @@
-# Kaggle credentials
+# Credentials and environments
 kaggle.json
-
-# Dataset files
+.env
+.env.*
+.venv/
+venv/
+env/
+# Raw dataset and caches
+/data/
+/datasets/
 chest_xray/
-chest-xray-pneumonia.zip
+.cache/
 __MACOSX/
-
-# Trained models
+*.zip
+# Model artifacts: retain only the one required checksum-verified V5 asset
 *.keras
 *.h5
 *.hdf5
 *.pth
 *.pt
-
-# Jupyter / Colab
+!/assets/selected_model.keras
+# Notebook, Python and operating-system caches
 .ipynb_checkpoints/
-
-# Python cache
 __pycache__/
-*.pyc
-
-# System files
+*.py[cod]
 .DS_Store
 Thumbs.db
