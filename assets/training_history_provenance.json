@@ -1,0 +1,9 @@
+{
+  "source": "Original V5 stdout, cell 49 in archived 55-cell development notebook",
+  "source_notebook_sha256": "d3e37ab99931ea8aae0b0709d0fef20b10884fb1fede769e664733ae6335bcb6",
+  "model_sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "provenance": "Recovered rounded console metrics, not native Keras History",
+  "accuracy_threshold": 0.5,
+  "rows": 14,
+  "logged_metric_digits": 4
+}

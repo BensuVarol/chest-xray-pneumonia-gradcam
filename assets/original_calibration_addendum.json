@@ -1,0 +1,8 @@
+{
+  "stage": "after V5 training-validation development, before V5 historical-test inference",
+  "deployment_threshold_rule": "validation precision >= 0.95 and recall >= 0.95; maximize specificity, then higher threshold, then F1",
+  "checkpoint_rule": "require validation precision and recall >= 0.95; maximize specificity, then F1, then higher threshold; model ties use ROC-AUC then model name",
+  "uses_current_v5_historical_test_results": false,
+  "adaptive_development_after_v3_v4_benchmark": true,
+  "not_claimed_as_fully_preregistered": true
+}

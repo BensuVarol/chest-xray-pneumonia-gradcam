@@ -1,0 +1,15 @@
+{
+  "python": "3.13.15",
+  "tensorflow": "2.21.0",
+  "keras": "3.13.2",
+  "numpy": "2.1.3",
+  "pandas": "2.2.3",
+  "sklearn": "1.6.1",
+  "mixed_precision": "float32",
+  "selected_model_sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "members": [
+    "EfficientNetV2B0_320"
+  ],
+  "decision_threshold": 0.72,
+  "dataset_root": "/kaggle/input/chest-xray-pneumonia/chest_xray"
+}

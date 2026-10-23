@@ -1,0 +1,11 @@
+{
+  "prior_train_images": 4434,
+  "prior_validation_images": 782,
+  "filename_proxy_groups_shared_train_validation": 409,
+  "byte_identical_hashes_shared_train_validation": 7,
+  "unique_source_training_images": 5216,
+  "unique_source_training_hashes": 5190,
+  "filename_proxy_group_count": 2846,
+  "unparsed_names": [],
+  "scope": "Filename keys are grouping proxies; they do not verify clinical patient identity."
+}

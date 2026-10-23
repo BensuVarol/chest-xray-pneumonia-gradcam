@@ -1,0 +1,21 @@
+{
+  "threshold": 0.72,
+  "accuracy": 0.907051282051282,
+  "precision": 0.8878504672897196,
+  "recall": 0.9743589743589743,
+  "specificity": 0.7948717948717948,
+  "f1": 0.9290953545232273,
+  "tn": 186,
+  "fp": 48,
+  "fn": 10,
+  "tp": 380,
+  "roc_auc": 0.9745671707210168,
+  "n": 624,
+  "name": "V5_EfficientNetV2B0_320",
+  "members": [
+    "EfficientNetV2B0_320"
+  ],
+  "selected_candidate": "EfficientNetV2B0_320",
+  "independent_unseen_test": false,
+  "benchmark": "previously_inspected_official_test"
+}

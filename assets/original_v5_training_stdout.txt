@@ -1,0 +1,86 @@
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/efficientnet_v2/efficientnetv2-b0_notop.h5
+[1m24274472/24274472[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 0us/step
+
+TRAINING EfficientNetV2B0_320 HEAD
+Epoch 1/4
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.8996, precision=0.9604, recall=0.9534, feasible=True
+237/237 - 61s - 256ms/step - accuracy: 0.8223 - auc: 0.9173 - loss: 0.4168 - val_accuracy: 0.9320 - val_auc: 0.9811 - val_loss: 0.2538 - learning_rate: 0.0010
+Epoch 2/4
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9219, precision=0.9689, recall=0.9520, feasible=True
+237/237 - 40s - 171ms/step - accuracy: 0.9051 - auc: 0.9717 - loss: 0.2840 - val_accuracy: 0.9456 - val_auc: 0.9850 - val_loss: 0.2276 - learning_rate: 0.0010
+Epoch 3/4
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9368, precision=0.9746, recall=0.9505, feasible=True
+237/237 - 40s - 170ms/step - accuracy: 0.9222 - auc: 0.9780 - loss: 0.2586 - val_accuracy: 0.9425 - val_auc: 0.9872 - val_loss: 0.2206 - learning_rate: 0.0010
+Epoch 4/4
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9517, precision=0.9805, recall=0.9534, feasible=True
+237/237 - 40s - 168ms/step - accuracy: 0.9286 - auc: 0.9816 - loss: 0.2455 - val_accuracy: 0.9561 - val_auc: 0.9890 - val_loss: 0.2066 - learning_rate: 0.0010
+
+TRAINING EfficientNetV2B0_320 FINE-TUNE; BatchNormalization remains frozen
+Epoch 1/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9703, precision=0.9879, recall=0.9505, feasible=True
+237/237 - 72s - 302ms/step - accuracy: 0.9371 - auc: 0.9865 - loss: 0.2243 - val_accuracy: 0.9561 - val_auc: 0.9924 - val_loss: 0.1992 - learning_rate: 1.0000e-05
+Epoch 2/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9814, precision=0.9924, recall=0.9505, feasible=True
+237/237 - 51s - 215ms/step - accuracy: 0.9482 - auc: 0.9904 - loss: 0.2061 - val_accuracy: 0.9644 - val_auc: 0.9939 - val_loss: 0.1810 - learning_rate: 1.0000e-05
+Epoch 3/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9814, precision=0.9924, recall=0.9549, feasible=True
+237/237 - 51s - 215ms/step - accuracy: 0.9550 - auc: 0.9934 - loss: 0.1924 - val_accuracy: 0.9634 - val_auc: 0.9952 - val_loss: 0.1872 - learning_rate: 1.0000e-05
+Epoch 4/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9814, precision=0.9925, recall=0.9578, feasible=True
+237/237 - 51s - 215ms/step - accuracy: 0.9603 - auc: 0.9935 - loss: 0.1875 - val_accuracy: 0.9623 - val_auc: 0.9959 - val_loss: 0.1868 - learning_rate: 1.0000e-05
+Epoch 5/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9888, precision=0.9954, recall=0.9520, feasible=True
+237/237 - 51s - 216ms/step - accuracy: 0.9624 - auc: 0.9950 - loss: 0.1787 - val_accuracy: 0.9676 - val_auc: 0.9963 - val_loss: 0.1699 - learning_rate: 3.0000e-06
+Epoch 6/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9888, precision=0.9954, recall=0.9534, feasible=True
+237/237 - 51s - 216ms/step - accuracy: 0.9701 - auc: 0.9961 - loss: 0.1726 - val_accuracy: 0.9707 - val_auc: 0.9965 - val_loss: 0.1676 - learning_rate: 3.0000e-06
+Epoch 7/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9888, precision=0.9954, recall=0.9549, feasible=True
+237/237 - 51s - 216ms/step - accuracy: 0.9683 - auc: 0.9953 - loss: 0.1757 - val_accuracy: 0.9676 - val_auc: 0.9966 - val_loss: 0.1715 - learning_rate: 3.0000e-06
+Epoch 8/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9888, precision=0.9954, recall=0.9520, feasible=True
+237/237 - 51s - 214ms/step - accuracy: 0.9672 - auc: 0.9959 - loss: 0.1714 - val_accuracy: 0.9718 - val_auc: 0.9966 - val_loss: 0.1642 - learning_rate: 3.0000e-06
+Epoch 9/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9888, precision=0.9954, recall=0.9520, feasible=True
+237/237 - 50s - 211ms/step - accuracy: 0.9664 - auc: 0.9960 - loss: 0.1719 - val_accuracy: 0.9728 - val_auc: 0.9967 - val_loss: 0.1625 - learning_rate: 3.0000e-06
+Epoch 10/10
+ | EfficientNetV2B0_320 validation checkpoint: spec=0.9926, precision=0.9969, recall=0.9505, feasible=True
+237/237 - 52s - 217ms/step - accuracy: 0.9728 - auc: 0.9966 - loss: 0.1664 - val_accuracy: 0.9718 - val_auc: 0.9969 - val_loss: 0.1609 - learning_rate: 3.0000e-06
+CANDIDATE COMPLETE {
+  "threshold": 0.72,
+  "accuracy": 0.9623430962343096,
+  "precision": 0.9969465648854962,
+  "recall": 0.950509461426492,
+  "specificity": 0.9925650557620818,
+  "f1": 0.9731743666169895,
+  "tn": 267,
+  "fp": 2,
+  "fn": 34,
+  "tp": 653,
+  "constraints_met": true,
+  "roc_auc": 0.9969535126594264,
+  "name": "EfficientNetV2B0_320",
+  "members": [
+    "EfficientNetV2B0_320"
+  ],
+  "model_file": "/content/pneumonia_v5/20261022T124651_224595Z/EfficientNetV2B0_320.keras",
+  "elapsed_seconds": 760.3324074745178,
+  "selected_checkpoint": {
+    "threshold": 0.72,
+    "accuracy": 0.9623430962343096,
+    "precision": 0.9969465648854962,
+    "recall": 0.950509461426492,
+    "specificity": 0.9925650557620818,
+    "f1": 0.9731743666169895,
+    "tn": 267,
+    "fp": 2,
+    "fn": 34,
+    "tp": 653,
+    "constraints_met": true,
+    "roc_auc": 0.9969535126594264,
+    "model": "EfficientNetV2B0_320",
+    "phase": "fine_tune",
+    "epoch": 10
+  },
+  "reload_max_abs_error": 0.0
+}

@@ -1,0 +1,17 @@
+{
+  "historical_development_comparison.csv": "e5919318c96441c9e9c953d2eb8344855e6770379a0c403710beeb3795eeb844",
+  "original_calibration_addendum.json": "f43cbfe1f55499b28b5a397649fba1fc7957b8c84ffe6c6bb3c381e74a932ea1",
+  "original_checkpoint_selection.csv": "0d52c91e0a5dbf94a1a42e9c7f6d4a3ff82d233348cbe11054d2e83276cde8f8",
+  "original_development_protocol.json": "485d6aecd2ef592a1e7594d0eea6b2775a39174d181329f8d64645e97168cde9",
+  "original_environment.json": "abf9ab095dba0b175d68eb31418c4afa84192b4550a1ad1c6aa3c5d87d9c4aa6",
+  "original_historical_metrics.json": "d9cefe2f0bd0a9b60a83aa4c118cc57171e534db2d50c7b3aa2f36712692945d",
+  "original_historical_predictions.csv": "64daefe155b6f493cbf982acf0c3da6ff7830358ea80c9e32ade76291f8d2e3a",
+  "original_locked_policy.json": "bc091d211a1e15647b39a6a4054fabd0ab7c7421e926b24f2600fd398dc1d871",
+  "original_prior_split_audit.json": "5bb5314da370ff33397828a92771681a2e073cae0b851131762b4820cf464be3",
+  "original_split_manifest.json": "19c36dec4890911771fec2d373461092046648fb0a4876730622c8898f92c57c",
+  "original_v5_training_stdout.txt": "4283226468111d9fc684919ef8c39765541f2f3ff5f12535230c8a66f86c1465",
+  "original_validation_predictions.csv": "05e1fdc4e9e6c497b015c46ece362547481af16f5880a3e383fa7a12b77b2c20",
+  "recovered_training_history.csv": "f57b21265a0d9a02ab4f0e24cbe87b35dc867a7fb9490f623fd292b0788016f6",
+  "selected_model.keras": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "training_history_provenance.json": "27ae77cc105edc6d4048c5f8f6876d4685d586b65e977e6a1e863b8871c930e6"
+}
