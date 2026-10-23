@@ -1,0 +1,23 @@
+{
+  "model_sha256": "2b9636582aa7281dcd01083931dcaabf5e0cff771405f6f81d88a4f03a455fc9",
+  "threshold": 0.72,
+  "comparison": "score >= threshold",
+  "selection_dataset": "grouped_source_stratified_validation",
+  "validation_metrics": {
+    "threshold": 0.72,
+    "n": 956,
+    "tn": 267,
+    "fp": 2,
+    "fn": 34,
+    "tp": 653,
+    "accuracy": 0.9623430962343096,
+    "precision": 0.9969465648854962,
+    "recall": 0.950509461426492,
+    "specificity": 0.9925650557620818,
+    "f1": 0.9731743666169895,
+    "roc_auc": 0.9969535126594264,
+    "constraints_met": true
+  },
+  "rule": "precision/recall floors; maximize specificity, higher threshold, F1",
+  "independent_test": false
+}
